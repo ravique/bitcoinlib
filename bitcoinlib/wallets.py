@@ -3634,8 +3634,7 @@ class Wallet(object):
                 # change_keys = [self.get_key(account_id=account_id, network=network, change=1)]
                 change_keys = [self.key_for_path(path=[0, 0], account_id=account_id, network=network)]
             else:
-                change_keys = self.get_keys(account_id=account_id, network=network, change=1,
-                                            number_of_keys=number_of_change_outputs)
+                change_keys = [self.key_for_path(path=[0, 0], account_id=account_id, network=network)]
 
             if number_of_change_outputs > 1:
                 rand_prop = transaction.change - number_of_change_outputs * min_output_value
